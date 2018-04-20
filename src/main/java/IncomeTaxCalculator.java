@@ -8,7 +8,7 @@ public class IncomeTaxCalculator {
         return Math.round(income * getTaxPercentage(income, dateOfBirth) / 100);
     }
 
-    private boolean AOWReached(Date dateOfBirth)
+    private boolean AOW(Date dateOfBirth)
     {
         if (dateOfBirth.before(new Date("01/01/53")))
         {
@@ -20,7 +20,7 @@ public class IncomeTaxCalculator {
     }
 
     private double getTaxPercentage(int income, Date dateOfBirth){
-        boolean old = AOWReached((dateOfBirth));
+        boolean old = AOW((dateOfBirth));
 
         if (income == 0){
             return 0.00;
