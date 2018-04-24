@@ -22,47 +22,47 @@ public class IncomeTaxCalculatorTest {
     }
 
     @Test
-    public void testCalcTaxEersteSchijf() {
+    public void testCalcTaxFirstBracket() {
         //test eerste schijf:
         assertThat(37.00d, is(taxCalculator.calculateTax(100, new Date("01/01/53"))));
     }
 
     @Test
-    public void testCalcTaxTweedeSchijf() {
+    public void testCalcTaxSeoncdBracket() {
         assertThat( 8228.00d, is(taxCalculator.calculateTax(20143, new Date("01/01/53"))));
     }
 
     @Test
-    public void testCalcTaxDerdeSchijf() {
+    public void testCalcTaxThirdBracket() {
         assertThat(35590.00d, is(taxCalculator.calculateTax(68508, new Date("01/01/53"))));
     }
 
 
     @Test
-    public void testCalAOWTaxEersteSchijf() {
+    public void testCalcAowTaxFirstBracket() {
         //test eerste schijf:
         assertThat(19.00, is(taxCalculator.calculateTax(100, new Date("01/01/52"))));
     }
 
     @Test
-    public void testCalcAOWTaxTweedeSchijf() {
+    public void testCalcAowTaxSecondBracket() {
         //test tweede schijf:
         assertThat(4623.00, is(taxCalculator.calculateTax(20143, new Date("01/01/52"))));
     }
 
     @Test
-    public void testCalcAOWwTaxDerdeSchijf() {
+    public void testCalcAowwTaxThirdBracket() {
         //test derde schijf:
         assertThat(27985.00d, is(taxCalculator.calculateTax(68507, new Date("01/01/52"))));
     }
 
     @Test
-    public void testCalcAOWTaxVierdeSchijf() {
+    public void testCalcAowTaxFourthBracket() {
         //test vierde en laatste schijf:
         assertThat( 35590.00, is(taxCalculator.calculateTax(68508, new Date("01/01/52"))));
     }
     @Test
-    public void AOW()
+    public void calcTaxAowReached()
     {
         assertThat(19.00, is(taxCalculator.calculateTax(100, new Date("01/01/52"))));
         assertThat(3756.00, is(taxCalculator.calculateTax(20142, new Date("01/01/52"))));
@@ -73,7 +73,7 @@ public class IncomeTaxCalculatorTest {
 
 
     @Test
-    public void noAOW()
+    public void calcTax()
     {
         assertThat(37.00, is(taxCalculator.calculateTax(100, new Date("01/01/53"))));
         assertThat(7362.00, is(taxCalculator.calculateTax(20142, new Date("01/01/53"))));

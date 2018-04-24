@@ -3,9 +3,9 @@ import java.util.List;
 
 public class IncomeTaxCalculator {
 
-    public double calculateTax(int income, Date dateOfBirth)
+    public double calculateTax(int inc, Date dateOfBirth)
     {
-        return Math.round(income * getTaxPercentage(income, dateOfBirth) / 100);
+        return Math.round(inc * getTaxPercentage(inc, dateOfBirth) / 100);
     }
 
     private boolean AOW(Date dateOfBirth)
@@ -19,26 +19,26 @@ public class IncomeTaxCalculator {
         }
     }
 
-    private double getTaxPercentage(int income, Date dateOfBirth){
+    private double getTaxPercentage(int inc, Date dateOfBirth){
         boolean old = AOW((dateOfBirth));
 
-        if (income == 0){
+        if (inc == 0){
             return 0.00;
         }
-        else if (income <= 20142)
+        else if (inc <= 20142)
         {
             if(old){
                 return 18.65;
             }
             return 36.55;
         }
-        else if(income >= 20143 && income <= 34404 && old){
+        else if(inc >= 20143 && inc <= 34404 && old){
             return 22.95;
         }
-        else if(income >= 33405 && income <= 68507 && old){
+        else if(inc >= 33405 && inc <= 68507 && old){
             return 40.85;
         }
-        else if (income >= 20143 && income <= 68507)
+        else if (inc >= 20143 && inc <= 68507)
         {
             return 40.85;
         }
